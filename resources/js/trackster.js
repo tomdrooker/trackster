@@ -1,21 +1,25 @@
+var Trackster = {};
+const API_KEY = 'b094def71f859ced6757c13a8b41867e';
+
 $(document).ready(function() {
   $('#search-button').click(function(){
     Trackster.searchTracksByTitle($('#search-input').val());
-  });
-  $.ajax({
-    url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=tiny&api_key=b094def71f859ced6757c13a8b41867e&format=json',
-    datatype: 'jsonp',
-    success: function (response){
-      console.log(response);
-    }
+    $.ajax({
+      url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
+      datatype: 'jsonp',
+      success: function(response){
+        console.log(response);
+      }
+    });
   });
 });
 
-const API_KEY = 'b094def71f859ced6757c13a8b41867e';
+Trackster.searchTracksByTitle = function(title) {
+
+}
 
 
 
-var Trackster = {};
 
 /*
   Given an array of track data, create the HTML for a Bootstrap row for each.
