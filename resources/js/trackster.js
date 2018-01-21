@@ -22,7 +22,22 @@ $(document).ready(function() {
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-
+  var trackInfo = ['Song', 'Artist', 'Album', 'Listeners', 'Length'];
+  var trackIndex = trackInfo.length;
+  for (var i = 0; i < trackIndex; i++){
+    console.log(trackInfo[i]);
+var htmlTrackRow = ‘<div class="container-fluid”>’ +
+                                   ‘<div class="row" id="#track-info”>’ +
+                                     ‘<p class="col-xs-1 col-xs-offset-1”><i class="fa fa-play-circle-o fa-2x"></i></p>’ +
+                                     ‘<p class="col-xs-3">It's Raining Today</p>’ +
+                                     ‘<p class="col-xs-2">Scott Walker</p>’ +
+                                     ‘<p class="col-xs-2">Scott 3</p>’ +
+                                     ‘<p class="col-xs-2">2,756,248</p>’ +
+                                     ‘<p class="col-xs-1">3:59</p>’ +
+                                  ‘</div>’ +
+                                ‘</div>’;
+$(‘#track-info’).append(htmlTrackRow);
+}
 };
 
 /*

@@ -48,3 +48,16 @@ input {
   padding: 10px 0;
   margin-right: 0.5rem;
 }
+
+/* Column headers */
+
+#column-headers {
+  display: flex;
+  align-items: center;
+  background-color: rgb(104, 0, 255);
+  color: rgb(255, 255, 255);
+}
+
+.fa-play-circle-o {
+  color: rgb(255, 0, 171);
+}
