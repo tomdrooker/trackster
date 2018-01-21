@@ -10,7 +10,9 @@ $(document).ready(function() {
       datatype: 'jsonp',
       success: function(response){
         Trackster.renderTracks(response.results.trackmatches.track);
+        console.log(response.results.trackmatches.track);
       }
+
     });
   };
   });
