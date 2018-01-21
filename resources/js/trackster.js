@@ -9,7 +9,7 @@ $(document).ready(function() {
       url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + title + '&api_key=' + API_KEY + '&format=json',
       datatype: 'jsonp',
       success: function(response){
-        console.log(response);
+        Trackster.renderTracks(response.results.trackmatches.track);
       }
     });
   };
@@ -22,22 +22,25 @@ $(document).ready(function() {
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-  var trackInfo = ['Song', 'Artist', 'Album', 'Listeners', 'Length'];
-  var trackIndex = trackInfo.length;
-  for (var i = 0; i < trackIndex; i++){
-    console.log(trackInfo[i]);
-var htmlTrackRow = ‘<div class="container-fluid”>’ +
-                                   ‘<div class="row" id="#track-info”>’ +
-                                     ‘<p class="col-xs-1 col-xs-offset-1”><i class="fa fa-play-circle-o fa-2x"></i></p>’ +
-                                     ‘<p class="col-xs-3">It's Raining Today</p>’ +
-                                     ‘<p class="col-xs-2">Scott Walker</p>’ +
-                                     ‘<p class="col-xs-2">Scott 3</p>’ +
-                                     ‘<p class="col-xs-2">2,756,248</p>’ +
-                                     ‘<p class="col-xs-1">3:59</p>’ +
-                                  ‘</div>’ +
-                                ‘</div>’;
-$(‘#track-info’).append(htmlTrackRow);
-}
+  var $trackInfo = $('#track-info');
+
+  $trackInfo.empty();
+
+  for (var trackIndex = 0; trackIndex < tracks.length; trackIndex++){
+  var track = tracks[trackIndex];
+  var mediumAlbumArt = track.image[1]["#text"];
+  var htmlTrackRow =
+      '<div class="row">' +
+        '<p class="col-xs-1 col-xs-offset-1"><i class="fa fa-play-circle-o fa-2x"></i>' +
+        '<a href="' + track.url + '" target="_blank">' +
+        '</p>' +
+        '<p class="col-xs-3">' + track.name + '</p>' +
+        '<p class="col-xs-2">' + 'track.artist' + '</p>' +
+        '<p class="col-xs-2">' + mediumAlbumArt + '</p>' +
+        '<p class="col-xs-2">' + track.listeners + '</p>' +
+        '</div>';
+  $('#track-info').append(htmlTrackRow);
+  }
 };
 
 /*
