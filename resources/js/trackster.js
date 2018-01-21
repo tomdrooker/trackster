@@ -12,7 +12,6 @@ $(document).ready(function() {
         Trackster.renderTracks(response.results.trackmatches.track);
         console.log(response.results.trackmatches.track);
       }
-
     });
   };
   });
@@ -30,18 +29,16 @@ Trackster.renderTracks = function(tracks) {
 
   for (var trackIndex = 0; trackIndex < tracks.length; trackIndex++){
   var track = tracks[trackIndex];
-  var mediumAlbumArt = track.image[1]["#text"];
+  var mediumAlbumArt = track.image[1]['#text'];
   var htmlTrackRow =
       '<div class="row">' +
-        '<p class="col-xs-1 col-xs-offset-1"><i class="fa fa-play-circle-o fa-2x"></i>' +
-        '<a href="' + track.url + '" target="_blank">' +
-        '</p>' +
+        '<p class="col-xs-1 col-xs-offset-1"><i class="fa fa-play-circle-o fa-2x"><a href="' + track.url + '" target="_blank"></i></p>' +
         '<p class="col-xs-3">' + track.name + '</p>' +
-        '<p class="col-xs-2">' + 'track.artist' + '</p>' +
+        '<p class="col-xs-2">' + track.artist + '</p>' +
         '<p class="col-xs-2">' + mediumAlbumArt + '</p>' +
         '<p class="col-xs-2">' + track.listeners + '</p>' +
         '</div>';
-  $('#track-info').append(htmlTrackRow);
+$trackInfo.append(htmlTrackRow);
   }
 };
 
