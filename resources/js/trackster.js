@@ -17,7 +17,6 @@ $(document).ready(function() {
   });
 });
 
-
 /*
   Given an array of track data, create the HTML for a Bootstrap row for each.
   Append each "row" to the container in the body to display all tracks.
@@ -31,13 +30,15 @@ Trackster.renderTracks = function(tracks) {
   var track = tracks[trackIndex];
   var mediumAlbumArt = track.image[1]['#text'];
   var htmlTrackRow =
-      '<div class="row">' +
-        '<p class="col-xs-1 col-xs-offset-1"><i class="fa fa-play-circle-o fa-2x"><a href="' + track.url + '" target="_blank"></i></p>' +
+      '<div class="row track-styles">' +
+        '<p class="col-xs-1 col-xs-offset-1">' +
+         '<a href="' + track.url + '" target="_blank">' +
+        '<i class="fa fa-play-circle-o fa-2x"></i></a></p>' +
         '<p class="col-xs-3">' + track.name + '</p>' +
         '<p class="col-xs-2">' + track.artist + '</p>' +
-        '<p class="col-xs-2">' + mediumAlbumArt + '</p>' +
+        '<p class="col-xs-2"><img src="' + mediumAlbumArt + '"/></p>' +
         '<p class="col-xs-2">' + track.listeners + '</p>' +
-        '</div>';
+      '</div>';
 $trackInfo.append(htmlTrackRow);
   }
 };

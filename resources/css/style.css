@@ -33,6 +33,10 @@ html {
   border-color: rgb(255, 102, 204);
 }
 
+button:active {
+  outline: none;
+}
+
 .btn {
   padding: 10px 33px;
   border-radius: 19px;
@@ -49,6 +53,10 @@ input {
   margin-right: 0.5rem;
 }
 
+input:focus {
+  outline: none;
+}
+
 /* Column headers */
 
 #column-headers {
@@ -56,8 +64,21 @@ input {
   align-items: center;
   background-color: rgb(104, 0, 255);
   color: rgb(255, 255, 255);
+  font-weight: bold;
 }
 
 .fa-play-circle-o {
   color: rgb(255, 0, 171);
+}
+
+/* Data field */
+
+.track-styles {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #cccccc;
+}
+
+.track-styles:hover {
+  background-color: rgb(239, 237, 242);
 }
